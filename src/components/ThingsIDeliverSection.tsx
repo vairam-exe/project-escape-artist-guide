@@ -132,16 +132,21 @@ const ThingsIDeliverSection = () => {
       </div>
       
       {/* Curved section divider at top */}
-      <div className="absolute top-0 left-0 right-0 h-12 md:h-24">
+      <div className="absolute top-0 left-0 right-0 h-12 md:h-24 animate-wave-slow">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="absolute top-0 w-full h-full fill-white">
           <path d="M0,96L60,112C120,128,240,160,360,154.7C480,149,600,107,720,101.3C840,96,960,128,1080,138.7C1200,149,1320,139,1380,133.3L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
         </svg>
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="text-center mb-16 transform transition-all duration-700 ease-out opacity-0 translate-y-10"
-          style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(10px)' }}>
-          <span className="inline-block px-3 py-1 bg-brand-purple/20 text-brand-purple rounded-full text-sm font-semibold mb-3">
+        <div 
+          className="text-center mb-16 transition-all duration-1000 ease-out"
+          style={{ 
+            opacity: isVisible ? 1 : 0, 
+            transform: isVisible ? 'translateY(0)' : 'translateY(30px)'
+          }}
+        >
+          <span className="inline-block px-3 py-1 bg-brand-purple/20 text-brand-purple rounded-full text-sm font-semibold mb-3 animate-float">
             MY SERVICES
           </span>
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-brand-purple via-brand-purple-light to-violet-500">
@@ -152,7 +157,7 @@ const ThingsIDeliverSection = () => {
           </p>
           <div className="relative mt-10">
             <Separator className="absolute left-1/2 -translate-x-1/2 w-32 bg-brand-purple/30 h-1 rounded-full" />
-            <Separator className="absolute left-1/2 -translate-x-1/2 w-16 bg-brand-purple h-1 rounded-full" style={{ animation: 'pulse 2s infinite' }} />
+            <Separator className="absolute left-1/2 -translate-x-1/2 w-16 bg-brand-purple h-1 rounded-full animate-pulse-custom" />
           </div>
         </div>
 
@@ -171,7 +176,7 @@ const ThingsIDeliverSection = () => {
             ];
             
             // Calculate delay for staggered animations
-            const animationDelay = `${0.1 + index * 0.1}s`;
+            const animationDelay = `${0.1 + index * 0.15}s`;
             
             return (
               <Card 
@@ -183,8 +188,8 @@ const ThingsIDeliverSection = () => {
                 )}
                 style={{ 
                   opacity: 0, 
-                  transform: 'translateY(20px)',
-                  animation: isVisible ? `fadeUp 0.6s ${animationDelay} forwards` : 'none'
+                  transform: 'translateY(40px) rotate(0.5deg)',
+                  animation: isVisible ? `fadeInRotate 0.8s ${animationDelay} forwards ease-out` : 'none'
                 }}
               >
                 {/* Decorative diagonal line */}
@@ -192,18 +197,36 @@ const ThingsIDeliverSection = () => {
                 
                 <div className="p-6 md:p-8">
                   <div className="flex flex-col sm:flex-row sm:items-start">
-                    <div className={`mb-4 sm:mb-0 sm:mr-6 ${feature.bgColor} p-4 rounded-lg group-hover:scale-110 transition-transform duration-500`}>
+                    <div 
+                      className={`mb-4 sm:mb-0 sm:mr-6 ${feature.bgColor} p-4 rounded-lg transition-all duration-500`}
+                      style={{ 
+                        transform: 'scale(1)', 
+                        animation: isVisible ? `pulseIcon 2s ${animationDelay} infinite alternate ease-in-out` : 'none'
+                      }}
+                    >
                       <div className={feature.color}>
                         {feature.icon}
                       </div>
                     </div>
                     <div className="w-full">
-                      <h3 className={`text-xl font-bold mb-3 ${feature.color} group-hover:translate-x-1 transition-transform duration-300`}>
+                      <h3 
+                        className={`text-xl font-bold mb-3 ${feature.color} transition-transform duration-500`}
+                        style={{ 
+                          transform: 'translateX(0)', 
+                          animation: isVisible ? `slideRight 0.6s ${animationDelay} forwards` : 'none' 
+                        }}
+                      >
                         {feature.title}
                       </h3>
                       
                       {feature.description && (
-                        <p className="text-gray-600 mb-4 leading-relaxed">
+                        <p 
+                          className="text-gray-600 mb-4 leading-relaxed transition-opacity duration-500"
+                          style={{ 
+                            opacity: 0, 
+                            animation: isVisible ? `fadeIn 0.6s ${parseFloat(animationDelay) + 0.2}s forwards` : 'none' 
+                          }}
+                        >
                           {feature.description}
                         </p>
                       )}
@@ -211,8 +234,17 @@ const ThingsIDeliverSection = () => {
                       {feature.listItems.length > 0 && (
                         <ul className="space-y-3 text-gray-600">
                           {feature.listItems.map((item, itemIndex) => (
-                            <li key={itemIndex} className="flex items-start group-hover:translate-x-1 transition-transform duration-300" 
-                                style={{ transitionDelay: `${itemIndex * 50}ms` }}>
+                            <li 
+                              key={itemIndex} 
+                              className="flex items-start transition-all duration-500" 
+                              style={{ 
+                                opacity: 0, 
+                                transform: 'translateX(20px)',
+                                animation: isVisible ? 
+                                  `slideInFade 0.5s ${parseFloat(animationDelay) + 0.3 + itemIndex * 0.1}s forwards ease-out` : 
+                                  'none'
+                              }}
+                            >
                               {item.label ? (
                                 <>
                                   <span className="font-semibold mr-2">{item.label}</span>
@@ -240,7 +272,7 @@ const ThingsIDeliverSection = () => {
         </div>
         
         {/* Curved section divider at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-12 md:h-24">
+        <div className="absolute bottom-0 left-0 right-0 h-12 md:h-24 animate-wave-slow">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="absolute bottom-0 w-full h-full fill-white transform rotate-180">
             <path d="M0,96L60,112C120,128,240,160,360,154.7C480,149,600,107,720,101.3C840,96,960,128,1080,138.7C1200,149,1320,139,1380,133.3L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
           </svg>
@@ -260,6 +292,7 @@ const ThingsIDeliverSection = () => {
             transform: translateY(0);
           }
         }
+        
         @keyframes pulse {
           0%, 100% {
             transform: translateX(-50%) scaleX(1);
@@ -267,6 +300,89 @@ const ThingsIDeliverSection = () => {
           50% {
             transform: translateX(-50%) scaleX(1.2);
           }
+        }
+        
+        @keyframes fadeInRotate {
+          from {
+            opacity: 0;
+            transform: translateY(40px) rotate(0.5deg);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) rotate(0);
+          }
+        }
+        
+        @keyframes pulseIcon {
+          0% {
+            transform: scale(1);
+          }
+          100% {
+            transform: scale(1.1);
+          }
+        }
+        
+        @keyframes slideRight {
+          from {
+            transform: translateX(-15px);
+            opacity: 0;
+          }
+          to {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+        
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        
+        @keyframes slideInFade {
+          from {
+            opacity: 0;
+            transform: translateX(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes pulse-custom {
+          0%, 100% {
+            transform: translateX(-50%) scaleX(1);
+            opacity: 0.8;
+          }
+          50% {
+            transform: translateX(-50%) scaleX(1.3);
+            opacity: 1;
+          }
+        }
+        
+        @keyframes wave-slow {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(5px);
+          }
+        }
+        
+        .animate-pulse-custom {
+          animation: pulse-custom 2s infinite;
+        }
+        
+        .animate-wave-slow {
+          animation: wave-slow 8s ease-in-out infinite;
+        }
+        
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
         }
         `}
       </style>
