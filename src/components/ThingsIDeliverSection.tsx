@@ -6,7 +6,7 @@ import {
   Users,
   BookText,
   FileText,
-  Easel,
+  Presentation,
   UploadCloud
 } from 'lucide-react';
 
@@ -162,7 +162,7 @@ const ThingsIDeliverSection = () => {
           <div className="feature-card">
             <div className="flex items-start">
               <div className="mr-4 bg-blue-100 p-3 rounded-lg">
-                <Easel className="h-6 w-6 text-brand-teal" />
+                <Presentation className="h-6 w-6 text-brand-teal" />
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-2">COMPREHENSIVE EXPLANATIONS</h3>
