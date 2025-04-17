@@ -20,6 +20,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-8">
             <a href="#struggle" className="text-sm text-gray-600 hover:text-brand-purple transition-colors">The Struggle</a>
             <a href="#solution" className="text-sm text-gray-600 hover:text-brand-purple transition-colors">The Solution</a>
+            <a href="#things-i-deliver" className="text-sm text-gray-600 hover:text-brand-purple transition-colors">Things I Deliver</a>
             <a href="#why-me" className="text-sm text-gray-600 hover:text-brand-purple transition-colors">Why Me?</a>
             <a href="#contact" className="text-sm text-gray-600 hover:text-brand-purple transition-colors">Contact</a>
           </div>

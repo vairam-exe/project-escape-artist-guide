@@ -32,6 +32,7 @@ const Navbar = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#struggle" className="text-sm font-medium hover:text-brand-purple transition-colors">The Struggle</a>
             <a href="#solution" className="text-sm font-medium hover:text-brand-purple transition-colors">The Solution</a>
+            <a href="#things-i-deliver" className="text-sm font-medium hover:text-brand-purple transition-colors">Things I Deliver</a>
             <a href="#why-me" className="text-sm font-medium hover:text-brand-purple transition-colors">Why Me?</a>
             <Button asChild>
               <a href="#contact" className="font-semibold">Get Help Now</a>
@@ -66,6 +67,13 @@ const Navbar = () => {
               onClick={() => setIsOpen(false)}
             >
               The Solution
+            </a>
+            <a 
+              href="#things-i-deliver" 
+              className="text-sm font-medium p-2 hover:bg-gray-100 rounded-md"
+              onClick={() => setIsOpen(false)}
+            >
+              Things I Deliver
             </a>
             <a 
               href="#why-me" 
