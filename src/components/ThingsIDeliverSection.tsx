@@ -248,7 +248,8 @@ const ThingsIDeliverSection = () => {
       </div>
       
       {/* CSS Animations */}
-      <style jsx>{`
+      <style>
+        {`
         @keyframes fadeUp {
           from {
             opacity: 0;
@@ -267,7 +268,8 @@ const ThingsIDeliverSection = () => {
             transform: translateX(-50%) scaleX(1.2);
           }
         }
-      `}</style>
+        `}
+      </style>
     </section>
   );
 };
