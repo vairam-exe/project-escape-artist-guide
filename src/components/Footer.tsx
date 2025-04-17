@@ -9,11 +9,11 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <div className="font-display font-bold text-xl text-brand-purple mb-2">
-              CS Project Rescue
+              vairam.exe
             </div>
             <p className="text-gray-600 text-sm">
-              Helping CS students survive their final year projects since 2024 
-              (yes, that's only this year, but we all start somewhere 😉)
+              Helping CS students survive their final year projects with real-world experience 
+              from a 2024 graduate
             </p>
           </div>
           
@@ -27,7 +27,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-200 mt-8 pt-8 text-center">
           <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} CS Project Rescue. Made with 
+            © {new Date().getFullYear()} vairam.exe. Made with 
             <Heart className="inline-block h-4 w-4 text-brand-red mx-1" /> 
             and too much caffeine.
           </p>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle2 } from 'lucide-react';
@@ -10,20 +9,19 @@ const SolutionSection = () => {
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-10 md:mb-0 relative">
             <div className="relative">
-              {/* Hero image area with decorative elements */}
               <div className="bg-gradient-to-br from-brand-purple/5 to-brand-teal/5 rounded-2xl p-8 max-w-md mx-auto">
                 <div className="bg-white rounded-xl shadow-lg p-6 relative z-10">
                   <div className="w-20 h-20 sm:w-24 sm:h-24 bg-brand-purple rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-3xl sm:text-4xl">🦸‍♂️</span>
                   </div>
-                  <h3 className="text-xl font-bold text-center mb-2">CS Project Hero</h3>
+                  <h3 className="text-xl font-bold text-center mb-2">Vairam: CS Project Hero</h3>
                   <div className="flex justify-center gap-2 mb-4">
                     <Badge className="bg-brand-purple/10 text-brand-purple hover:bg-brand-purple/20 border-none">Class of 2024</Badge>
                     <Badge className="bg-brand-teal/10 text-brand-teal hover:bg-brand-teal/20 border-none">Project Survivor</Badge>
                   </div>
                   <p className="text-center text-gray-600">
-                    "I'm not saying I'm a superhero, but have you ever seen me and 
-                    someone who can actually fix your CS project in the same room? 🤔"
+                    "I'm not saying I'm a superhero, but have you ever seen me 
+                    and someone who can actually fix your CS project in the same room? 🤔"
                   </p>
 
                   <div className="mt-6 pt-6 border-t border-gray-100">
@@ -41,7 +39,6 @@ const SolutionSection = () => {
                   </div>
                 </div>
 
-                {/* Decorative elements */}
                 <div className="absolute -top-4 -left-4 w-8 h-8 bg-brand-purple/20 rounded-full animate-bounce-light"></div>
                 <div className="absolute -bottom-8 right-20 w-16 h-16 bg-brand-teal/20 rounded-full animate-float"></div>
               </div>
@@ -53,12 +50,12 @@ const SolutionSection = () => {
               THE SOLUTION
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Enter Your CS Project Superhero 
+              Meet Your vairam.exe Project Superhero 
               <span className="ml-2">🦸‍♂️</span>
             </h2>
             
             <p className="text-lg mb-6 text-gray-700">
-              Hi there! I'm a 2024 CS graduate who's been through the same project hellscape you're in now. 
+              Hi there! I'm Vairam, a 2024 CS graduate who's been through the same project hellscape you're in now. 
               I survived my own final year project AND got scammed by a "professional service" that delivered
               absolute garbage.
             </p>

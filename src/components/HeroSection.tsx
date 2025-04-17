@@ -12,13 +12,13 @@ const HeroSection = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Final Year Project Got You <span className="text-brand-purple">Sweating</span>? 😅
               <br />
-              <span className="text-brand-teal">I've Been There</span> (and Got Scammed!)
+              <span className="text-brand-teal">vairam.exe</span> to the Rescue!
             </h1>
             
             <p className="text-lg mb-8 text-gray-700 max-w-lg">
               Your CS project doesn't have to be a horror movie 🎬 
-              (Unless you like that kind of thing). Get genuine help from someone who's survived 
-              the final year gauntlet (class of 2024! 🎓)
+              (Unless you like that kind of thing). Get genuine help from a 2024 CS graduate 
+              who's been in your shoes and survived the project panic!
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
@@ -30,7 +30,7 @@ const HeroSection = () => {
               </Button>
               
               <Button variant="outline" size="lg" className="border-brand-purple text-brand-purple hover:bg-brand-purple/10" asChild>
-                <a href="#why-me">Why Trust Me?</a>
+                <a href="#why-me">Why Trust vairam.exe?</a>
               </Button>
             </div>
           </div>

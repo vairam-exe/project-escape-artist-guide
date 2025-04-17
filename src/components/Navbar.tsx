@@ -25,7 +25,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <div className="font-display font-bold text-xl text-brand-purple">
-            CS Project Rescue
+            vairam.exe
           </div>
           
           {/* Desktop Navigation */}
