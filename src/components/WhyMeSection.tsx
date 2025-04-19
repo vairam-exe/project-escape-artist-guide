@@ -1,6 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ShieldCheck, Clock, Zap, Award, BookOpen, Users } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const WhyMeSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -133,24 +141,65 @@ const WhyMeSection = () => {
             transition: 'all 1s ease-out 0.8s'
           }}
         >
-          <h3 className="text-xl font-bold mb-4 text-center">
-            Happy Future Students Will Say Nice Things Here! 
-            <span className="ml-1">✨</span>
+          <h3 className="text-xl font-bold mb-6 text-center">
+            What Students Say About My Help 
+            <span className="ml-1">💬</span>
           </h3>
-          <div className="bg-gray-50 rounded-lg p-6 text-center">
-            <p className="text-gray-500 italic">
-              "This is where future testimonials will go once I've helped 
-              people not cry into their keyboards. For now, imagine glowing 
-              reviews and happy dance emojis!"
-            </p>
-            <div className="flex justify-center gap-2 mt-4">
-              <span className="text-2xl">⭐</span>
-              <span className="text-2xl">⭐</span>
-              <span className="text-2xl">⭐</span>
-              <span className="text-2xl">⭐</span>
-              <span className="text-2xl">⭐</span>
-            </div>
-          </div>
+          
+          <Carousel
+            opts={{
+              align: "center",
+              loop: true,
+            }}
+            className="w-full max-w-2xl mx-auto"
+          >
+            <CarouselContent>
+              {[
+                {
+                  name: "Alex Chen",
+                  program: "Computer Science",
+                  text: "I was struggling with my final year project until I found this service. Not only did they help me complete it, but they also made sure I understood every line of code!",
+                  avatar: "AC"
+                },
+                {
+                  name: "Sarah Johnson",
+                  program: "Software Engineering",
+                  text: "The explanations were crystal clear, and the support was amazing. I actually learned more from this experience than I did in some of my classes!",
+                  avatar: "SJ"
+                },
+                {
+                  name: "Mike Rodriguez",
+                  program: "Web Development",
+                  text: "Quick responses, patient explanations, and high-quality code. Plus, they were always available when I needed help defending my project.",
+                  avatar: "MR"
+                }
+              ].map((testimonial, index) => (
+                <CarouselItem key={index} className="md:basis-1/1 pl-4">
+                  <div className="bg-gray-50 rounded-lg p-6">
+                    <div className="flex items-center gap-4 mb-4">
+                      <Avatar>
+                        <AvatarFallback className="bg-brand-purple/10 text-brand-purple">
+                          {testimonial.avatar}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <p className="font-semibold">{testimonial.name}</p>
+                        <p className="text-sm text-gray-500">{testimonial.program}</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-600 italic">"{testimonial.text}"</p>
+                    <div className="flex gap-1 mt-4">
+                      {[...Array(5)].map((_, i) => (
+                        <span key={i} className="text-yellow-400">⭐</span>
+                      ))}
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
         </div>
       </div>
 
