@@ -158,24 +158,38 @@ const WhyMeSection = () => {
                 {
                   name: "Alex Chen",
                   program: "Computer Science",
-                  text: "I was struggling with my final year project until I found this service. Not only did they help me complete it, but they also made sure I understood every line of code!",
+                  text: "Thanks to this service, I went from panicking about my final project to confidently presenting it. The explanations were so clear, and the support was incredible!",
                   avatar: "AC"
                 },
                 {
                   name: "Sarah Johnson",
                   program: "Software Engineering",
-                  text: "The explanations were crystal clear, and the support was amazing. I actually learned more from this experience than I did in some of my classes!",
+                  text: "Not only did I get help with my project, but I actually learned more about modern development practices than I did in some of my classes. Worth every penny!",
                   avatar: "SJ"
                 },
                 {
                   name: "Mike Rodriguez",
                   program: "Web Development",
-                  text: "Quick responses, patient explanations, and high-quality code. Plus, they were always available when I needed help defending my project.",
+                  text: "Quick responses, clear explanations, and high-quality code. Plus, they made sure I understood everything for my project defense. Lifesaver!",
                   avatar: "MR"
+                },
+                {
+                  name: "Emily Zhang",
+                  program: "Information Technology",
+                  text: "After getting scammed by another service, finding this was a blessing. Honest, professional, and actually teaches you the material. 10/10 would recommend!",
+                  avatar: "EZ"
                 }
               ].map((testimonial, index) => (
-                <CarouselItem key={index} className="md:basis-1/1 pl-4">
-                  <div className="bg-gray-50 rounded-lg p-6">
+                <CarouselItem 
+                  key={index} 
+                  className="md:basis-1/1 pl-4"
+                  style={{
+                    animation: isVisible ? `slideIn 0.6s ${index * 0.2}s forwards` : 'none',
+                    opacity: 0,
+                    transform: 'translateX(50px)'
+                  }}
+                >
+                  <div className="bg-gray-50 rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                     <div className="flex items-center gap-4 mb-4">
                       <Avatar>
                         <AvatarFallback className="bg-brand-purple/10 text-brand-purple">
@@ -226,6 +240,17 @@ const WhyMeSection = () => {
           .feature-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+          }
+
+          @keyframes slideIn {
+            from {
+              opacity: 0;
+              transform: translateX(50px);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
           }
         `}
       </style>
