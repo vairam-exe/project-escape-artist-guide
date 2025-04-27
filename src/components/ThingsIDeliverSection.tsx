@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { 
   FileText,
@@ -161,114 +160,47 @@ const ThingsIDeliverSection = () => {
           </div>
         </div>
 
-        {/* Asymmetrical grid layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
-          {featureItems.map((feature, index) => {
-            // Create asymmetrical layout with different sized columns
-            const colSpanClasses = [
-              "md:col-span-6", // First item - half row
-              "md:col-span-6", // Second item - half row 
-              "md:col-span-4", // Third item - 1/3 row
-              "md:col-span-8", // Fourth item - 2/3 row
-              "md:col-span-5", // Fifth item - just under half
-              "md:col-span-7", // Sixth item - just over half
-              "md:col-span-12" // Last item - full row
-            ];
-            
-            // Calculate delay for staggered animations
-            const animationDelay = `${0.1 + index * 0.15}s`;
-            
-            return (
-              <Card 
-                key={index}
-                className={cn(
-                  "feature-card border-t-4 hover:shadow-xl group relative overflow-hidden",
-                  colSpanClasses[index],
-                  `border-t-${feature.color.split('-').pop()}-400`
-                )}
-                style={{ 
-                  opacity: 0, 
-                  transform: 'translateY(40px) rotate(0.5deg)',
-                  animation: isVisible ? `fadeInRotate 0.8s ${animationDelay} forwards ease-out` : 'none'
-                }}
-              >
-                {/* Decorative diagonal line */}
-                <div className="absolute -right-12 -top-12 w-24 h-24 opacity-10 bg-gradient-to-br from-brand-purple to-transparent transform rotate-45"></div>
-                
-                <div className="p-6 md:p-8">
-                  <div className="flex flex-col sm:flex-row sm:items-start">
-                    <div 
-                      className={`mb-4 sm:mb-0 sm:mr-6 ${feature.bgColor} p-4 rounded-lg transition-all duration-500`}
-                      style={{ 
-                        transform: 'scale(1)', 
-                        animation: isVisible ? `pulseIcon 2s ${animationDelay} infinite alternate ease-in-out` : 'none'
-                      }}
-                    >
-                      <div className={feature.color}>
-                        {feature.icon}
-                      </div>
-                    </div>
-                    <div className="w-full">
-                      <h3 
-                        className={`text-xl font-bold mb-3 ${feature.color} transition-transform duration-500`}
-                        style={{ 
-                          transform: 'translateX(0)', 
-                          animation: isVisible ? `slideRight 0.6s ${animationDelay} forwards` : 'none' 
-                        }}
-                      >
-                        {feature.title}
-                      </h3>
-                      
-                      {feature.description && (
-                        <p 
-                          className="text-gray-600 mb-4 leading-relaxed transition-opacity duration-500"
-                          style={{ 
-                            opacity: 0, 
-                            animation: isVisible ? `fadeIn 0.6s ${parseFloat(animationDelay) + 0.2}s forwards` : 'none' 
-                          }}
-                        >
-                          {feature.description}
-                        </p>
-                      )}
-                      
-                      {feature.listItems.length > 0 && (
-                        <ul className="space-y-3 text-gray-600">
-                          {feature.listItems.map((item, itemIndex) => (
-                            <li 
-                              key={itemIndex} 
-                              className="flex items-start transition-all duration-500" 
-                              style={{ 
-                                opacity: 0, 
-                                transform: 'translateX(20px)',
-                                animation: isVisible ? 
-                                  `slideInFade 0.5s ${parseFloat(animationDelay) + 0.3 + itemIndex * 0.1}s forwards ease-out` : 
-                                  'none'
-                              }}
-                            >
-                              {item.label ? (
-                                <>
-                                  <span className="font-semibold mr-2">{item.label}</span>
-                                  <span className="leading-relaxed">{item.content}</span>
-                                </>
-                              ) : (
-                                <>
-                                  <span className={`mr-2 ${feature.color} text-lg`}>•</span>
-                                  <span className="leading-relaxed">{item.content}</span>
-                                </>
-                              )}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
+        {/* Grid layout update */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {featureItems.map((feature, index) => (
+            <div 
+              key={index}
+              className="feature-card border-t-4 hover:shadow-xl group relative overflow-hidden"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible 
+                  ? 'translateY(0) rotate(0)' 
+                  : 'translateY(40px) rotate(1deg)',
+                transition: `all 0.6s ease-out ${index * 0.2}s`,
+                borderTopColor: `var(--${feature.color.split('-').pop()}-500)`
+              }}
+            >
+              <div className="p-6 md:p-8">
+                <div className={`mb-4 ${feature.bgColor} p-4 rounded-lg transition-all duration-500`}>
+                  <div className={feature.color}>
+                    {feature.icon}
                   </div>
                 </div>
-                
-                {/* Bottom decorative element */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-purple/20 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-              </Card>
-            );
-          })}
+                <h3 className={`text-xl font-bold mb-3 ${feature.color}`}>
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  {feature.description}
+                </p>
+                {feature.listItems.length > 0 && (
+                  <ul className="space-y-3 text-gray-600">
+                    {feature.listItems.map((item, itemIndex) => (
+                      <li key={itemIndex} className="flex items-start">
+                        <span className={`mr-2 ${feature.color}`}>•</span>
+                        <span>{item.content}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-purple/20 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+            </div>
+          ))}
         </div>
         
         {/* Curved section divider at bottom */}
