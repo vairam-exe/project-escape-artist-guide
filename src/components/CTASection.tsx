@@ -1,26 +1,16 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { ArrowRight, Mail, MessageSquare } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { Mail, MessageSquare } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa'; // Assuming you have react-icons installed
 
 const CTASection = () => {
-  const { toast } = useToast();
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // In a real app, you would send the form data to a server
-    toast({
-      title: "Message sent! 🚀",
-      description: "I'll get back to you faster than your project deadline is approaching!",
-      duration: 5000,
-    });
-    // Reset the form
-    e.currentTarget.reset();
-  };
+  // Your WhatsApp number in international format (without +, 00, or dashes)
+  // Assuming the wa.link points to +91 97894 09303
+  //const whatsappNumber = '919789409303';
+  const whatsappLink = `https://wa.link/m4d966`;
+  // Using the local path for the pre-generated QR code image
+  const qrCodeImagePath = '/lovable-uploads/wa.link_m4d966.png'; // Path relative to the public directory
 
   return (
     <section id="contact" className="py-16 md:py-24 bg-gradient-to-br from-brand-purple/5 to-brand-teal/5">
@@ -31,7 +21,7 @@ const CTASection = () => {
               LET'S DO THIS
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Stop Crying Into Your Keyboard? 
+              Ready to Stop Crying Into Your Keyboard?
               <span className="ml-2">😭</span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -41,13 +31,12 @@ const CTASection = () => {
           </div>
 
           <Card className="p-6 md:p-8 shadow-lg border-0">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              {/* Left Column: Email and Response Time */}
               <div>
-                <h3 className="text-2xl font-bold mb-4">Get in Touch</h3>
+                <h3 className="text-2xl font-bold mb-4">Connect Directly</h3>
                 <p className="text-gray-600 mb-6">
-                  Drop me a message and I'll get back to you faster than you can say 
-                  "my project is due tomorrow!" 
-                  <span className="ml-1">⚡</span>
+                  Reach out via email or check the typical response time.
                 </p>
 
                 <div className="space-y-6">
@@ -57,7 +46,7 @@ const CTASection = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold">Email</h4>
-                      <p className="text-gray-600">csproject@example.com</p>
+                      <p className="text-gray-600">nareshvairm88@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-start">
@@ -70,58 +59,33 @@ const CTASection = () => {
                     </div>
                   </div>
                 </div>
-
-                <div className="mt-8 p-4 bg-yellow-50 border border-yellow-100 rounded-lg">
-                  <p className="text-sm text-gray-700">
-                    <span className="font-semibold">Quick Tip:</span> The more details you provide about your project,
-                    the more accurately I can help you. Include deadlines, technologies, and specific issues! 
-                    <span className="ml-1">🧠</span>
-                  </p>
-                </div>
               </div>
 
-              <div>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-1">
-                      Name
-                    </label>
-                    <Input id="name" placeholder="Your name" required />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-1">
-                      Email
-                    </label>
-                    <Input id="email" type="email" placeholder="your@email.com" required />
-                  </div>
-                  <div>
-                    <label htmlFor="project-type" className="block text-sm font-medium mb-1">
-                      Project Type
-                    </label>
-                    <Input id="project-type" placeholder="Web App, Mobile, AI, etc." required />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-1">
-                      Project Details
-                    </label>
-                    <Textarea 
-                      id="message" 
-                      placeholder="Tell me about your project and how I can help..." 
-                      rows={4}
-                      required
-                    />
-                  </div>
-                  <Button type="submit" className="w-full bg-brand-purple hover:bg-brand-purple/90">
-                    Send SOS Signal <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </form>
-              </div>
+              {/* Right Column: WhatsApp QR Code and Button */}
+              <div className="flex flex-col items-center justify-center text-center">
+                 <h3 className="text-2xl font-bold mb-4">Message on WhatsApp</h3>
+                 <p className="text-gray-600 mb-6">
+                   Scan the QR code or click the button below to send a message!
+                 </p>
+                 {/* QR Code Image using the local path */}
+                 <img
+                   src={qrCodeImagePath} // Using the provided local path
+                   alt="WhatsApp QR Code"
+                   className="w-48 h-48 object-contain mb-6 rounded-md shadow-md"
+                 />
+                 {/* WhatsApp Button Link */}
+                 <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full max-w-xs">
+                   <Button type="button" size="lg" className="w-full bg-green-500 hover:bg-green-600">
+                     <FaWhatsapp className="mr-2 h-5 w-5" /> Send a WhatsApp Message
+                   </Button>
+                 </a>
+               </div>
             </div>
           </Card>
 
           <div className="mt-12 text-center">
             <p className="text-sm text-gray-500">
-              No strings attached, no high-pressure sales tactics. Just friendly, honest help from someone who gets it. 
+              No strings attached, no high-pressure sales tactics. Just friendly, honest help from someone who gets it.
               <span className="ml-1">💯</span>
             </p>
           </div>
