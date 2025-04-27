@@ -1,6 +1,6 @@
-
 import React from 'react';
-import { MessageSquare } from 'lucide-react';
+// Import the WhatsApp icon from react-icons. We'll use the FaWhatsapp icon from the Font Awesome library.
+import { FaWhatsapp } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 import {
   Tooltip,
@@ -24,7 +24,8 @@ const WhatsAppButton = () => {
               size="lg"
               className="rounded-full bg-brand-purple hover:bg-brand-purple/90 shadow-lg hover:scale-110 transition-transform duration-200 w-14 h-14 p-0"
             >
-              <MessageSquare className="h-6 w-6 text-white" />
+              {/* Replace MessageSquare with FaWhatsapp */}
+              <FaWhatsapp className="h-6 w-6 text-white" />
             </Button>
           </a>
         </TooltipTrigger>

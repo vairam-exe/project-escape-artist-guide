@@ -81,7 +81,7 @@ const HeroSection = () => {
                 className="bg-brand-purple hover:bg-brand-purple/90 text-white font-semibold transition-transform duration-300 hover:scale-105" 
                 asChild
               >
-                <a href="#contact" className="flex items-center group">
+                <a href="https://wa.link/m4d966" className="flex items-center group">
                   Rescue My Project
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
