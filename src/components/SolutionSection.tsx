@@ -1,20 +1,56 @@
-
 import React from 'react';
+import { useInView } from 'react-intersection-observer'; // Import useInView
+
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle2, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const SolutionSection = () => {
+
+  // --- Animation Implementation ---
+
+  // Setup Intersection Observers for the two columns
+  const [leftColRef, leftColInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1, // Trigger when 10% of the element is visible
+  });
+
+  const [rightColRef, rightColInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  // Base animation classes for columns (Fade in + Slide)
+  // Left column slides up slightly, Right column slides up slightly
+  const colAnimationClasses = (inView: boolean) =>
+    `transition-all duration-700 ease-out ${ // Adjust duration and easing
+      inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10' // Fade in and slide up
+    }`;
+
+  // Animation classes for staggered children within the right column (text content)
+  const childAnimationClasses = (inView: boolean, delay: string) =>
+    `transition-all duration-700 ease-out ${delay} ${ // Apply delay
+      inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5' // Simple fade up for children
+    }`;
+
+  // --- End Animation Implementation ---
+
+
   return (
     <section id="solution" className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-10 md:mb-0 relative">
+
+          {/* Left Column (Card) - Add ref and animation classes */}
+          <div
+            ref={leftColRef}
+            className={`md:w-1/2 mb-10 md:mb-0 relative ${colAnimationClasses(leftColInView)}`}
+          >
             <div className="relative">
               <div className="bg-gradient-to-br from-brand-purple/5 to-brand-teal/5 rounded-2xl p-8 max-w-md mx-auto">
                 <div className="bg-white rounded-xl shadow-lg p-6 relative z-10">
                   <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4">
-                    <img 
+                    <img
                       src="/lovable-uploads/c0392daf-ab4a-451a-88ce-a57a19bba27a.png"
                       alt="Project Superhero"
                       className="w-full h-full object-cover rounded-full"
@@ -35,41 +71,54 @@ const SolutionSection = () => {
                       <span className="font-semibold">98%</span>
                     </div>
                     <div className="w-full bg-gray-200 h-2 rounded-full mt-2">
-                      <div className="bg-brand-purple h-2 rounded-full" style={{width: "98%"}}></div>
+                      <div className="bg-brand-purple h-2 rounded-full" style={{width: "98%"}}></div> {/* Width is inline, but not animated by scroll */}
                     </div>
                   </div>
 
+                  {/* Absolute positioned elements are part of the left column block animation */}
                   <div className="absolute -bottom-6 -right-6 w-12 h-12 bg-brand-yellow rounded-full flex items-center justify-center shadow-lg border-4 border-white">
                     <span className="text-xl">🌟</span>
                   </div>
                 </div>
 
-                <div className="absolute -top-4 -left-4 w-8 h-8 bg-brand-purple/20 rounded-full animate-bounce-light"></div>
-                <div className="absolute -bottom-8 right-20 w-16 h-16 bg-brand-teal/20 rounded-full animate-float"></div>
+                <div className="absolute -top-4 -left-4 w-8 h-8 bg-brand-purple/20 rounded-full animate-bounce-light"></div> {/* These might have their own CSS animations */}
+                <div className="absolute -bottom-8 right-20 w-16 h-16 bg-brand-teal/20 rounded-full animate-float"></div> {/* Retain existing keyframe animations if desired */}
               </div>
             </div>
           </div>
 
-          <div className="md:w-1/2 md:pl-12">
-            <span className="inline-block px-3 py-1 bg-brand-teal/20 text-brand-teal rounded-full text-sm font-semibold mb-3">
+          {/* Right Column (Text Content) - Add ref and animation classes */}
+          <div
+            ref={rightColRef}
+            className={`md:w-1/2 md:pl-12 ${colAnimationClasses(rightColInView)}`}
+          >
+            {/* Apply child animation classes with delay */}
+            <span className={`inline-block px-3 py-1 bg-brand-teal/20 text-brand-teal rounded-full text-sm font-semibold mb-3 ${childAnimationClasses(rightColInView, 'delay-0')}`}>
               THE SOLUTION
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            {/* Apply child animation classes with delay */}
+            <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${childAnimationClasses(rightColInView, 'delay-100')}`}>
               Meet vairam.exe
               <span className="ml-2">🦸‍♂️</span>
             </h2>
-            
-            <p className="text-lg mb-6 text-gray-700">
-              Hi there! I'm Vairam, a 2024 CS graduate who's been through the same project hellscape you're in now. 
+
+            {/* Apply child animation classes with delay */}
+            <p className={`text-lg mb-6 text-gray-700 ${childAnimationClasses(rightColInView, 'delay-200')}`}>
+              Hi there! I'm Vairam, a 2024 CS graduate who's been through the same project hellscape you're in now.
               I survived my own final year project AND got scammed by a "professional service" that delivered
               absolute garbage.
             </p>
-            
-            <p className="text-lg mb-8 text-gray-700">
+
+            {/* Apply child animation classes with delay */}
+            <p className={`text-lg mb-8 text-gray-700 ${childAnimationClasses(rightColInView, 'delay-300')}`}>
               Now I'm here to be the person I needed back then - someone who:
             </p>
-            
-            <ul className="space-y-4 mb-8">
+
+            {/* Apply child animation classes with delay to the ul or stagger lis */}
+            {/* Animating UL is simpler; animating LIs adds more granular flow */}
+            {/* Let's animate the UL first, and add LI staggering if needed */}
+            <ul className={`space-y-4 mb-8 ${childAnimationClasses(rightColInView, 'delay-400')}`}>
+              {/* You could add delays to individual LIs here too if desired, e.g., delay-500, delay-600, etc. */}
               <li className="flex">
                 <CheckCircle2 className="h-6 w-6 text-brand-purple mr-3 flex-shrink-0" />
                 <span>Actually understands your project requirements (shocking, I know! 😱)</span>
@@ -87,13 +136,15 @@ const SolutionSection = () => {
                 <span>Has actually gone through this recently (not 10 years ago) 🎓</span>
               </li>
             </ul>
-            
-            <p className="text-gray-700 italic mb-6">
-              "The best revenge against scammers? Becoming the honest help students actually deserve." 
+
+            {/* Apply child animation classes with delay */}
+            <p className={`text-gray-700 italic mb-6 ${childAnimationClasses(rightColInView, 'delay-600')}`}>
+              "The best revenge against scammers? Becoming the honest help students actually deserve."
               <span className="block text-right mt-2">— Me, probably</span>
             </p>
 
-            <div className="mt-4 text-center">
+            {/* Apply child animation classes with delay */}
+            <div className={`mt-4 text-center ${childAnimationClasses(rightColInView, 'delay-700')}`}>
               <a
                 href="https://wa.link/m4d966"
                 target="_blank"

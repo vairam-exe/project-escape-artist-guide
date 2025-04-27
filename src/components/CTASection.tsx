@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react'; // Import useRef
+import { useInView } from 'react-intersection-observer'; // Import useInView
+
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Mail, MessageSquare } from 'lucide-react';
-import { FaWhatsapp } from 'react-icons/fa'; // Assuming you have react-icons installed
+import { FaWhatsapp } from 'react-icons/fa';
 
 const CTASection = () => {
   // Your WhatsApp number in international format (without +, 00, or dashes)
@@ -12,11 +14,43 @@ const CTASection = () => {
   // Using the local path for the pre-generated QR code image
   const qrCodeImagePath = '/lovable-uploads/wa.link_m4d966.png'; // Path relative to the public directory
 
+  // --- Animation Implementation ---
+
+  // Setup Intersection Observers for the main content blocks
+  const [headerRef, headerInView] = useInView({
+    triggerOnce: true, // Animation triggers only once
+    threshold: 0.1, // Trigger when 10% of the element is visible
+  });
+
+  const [cardRef, cardInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [footerTextRef, footerTextInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  // Helper function to generate dynamic animation classes
+  // Applies a fade-in and slide-up effect
+  const getAnimationClasses = (inView: boolean) =>
+    `transition-all duration-700 ease-out ${ // Adjust duration and easing as needed
+      inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10' // Start slightly below and invisible
+    }`;
+
+  // --- End Animation Implementation ---
+
+
   return (
     <section id="contact" className="py-16 md:py-24 bg-gradient-to-br from-brand-purple/5 to-brand-teal/5">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
+
+        {/* Header Block - Add ref and animation classes */}
+        <div
+          ref={headerRef}
+          className={`max-w-5xl mx-auto text-center mb-12 ${getAnimationClasses(headerInView)}`}
+        >
             <span className="inline-block px-3 py-1 bg-brand-purple/20 text-brand-purple rounded-full text-sm font-semibold mb-3">
               LET'S DO THIS
             </span>
@@ -30,9 +64,15 @@ const CTASection = () => {
             </p>
           </div>
 
-          <Card className="p-6 md:p-8 shadow-lg border-0">
+          {/* Card Component - Add ref and animation classes */}
+          {/* Assuming Card component accepts a ref prop, otherwise wrap in a div */}
+          <Card
+            ref={cardRef as React.Ref<HTMLDivElement>}
+            className={`p-6 md:p-8 shadow-lg border-0 ${getAnimationClasses(cardInView)}`}
+          >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               {/* Left Column: Email and Response Time */}
+              {/* You could add more granular animations here later if desired */}
               <div>
                 <h3 className="text-2xl font-bold mb-4">Connect Directly</h3>
                 <p className="text-gray-600 mb-6">
@@ -46,7 +86,7 @@ const CTASection = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold">Email</h4>
-                      <p className="text-gray-600">nareshvairm88@gmail.com</p>
+                      <p className="text-gray-600">nareshvairam88@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-start">
@@ -62,6 +102,7 @@ const CTASection = () => {
               </div>
 
               {/* Right Column: WhatsApp QR Code and Button */}
+              {/* You could add more granular animations here later if desired */}
               <div className="flex flex-col items-center justify-center text-center">
                  <h3 className="text-2xl font-bold mb-4">Message on WhatsApp</h3>
                  <p className="text-gray-600 mb-6">
@@ -83,15 +124,18 @@ const CTASection = () => {
             </div>
           </Card>
 
-          <div className="mt-12 text-center">
+          {/* Footer Text - Add ref and animation classes */}
+          <div
+            ref={footerTextRef}
+            className={`mt-12 text-center ${getAnimationClasses(footerTextInView)}`}
+          >
             <p className="text-sm text-gray-500">
               No strings attached, no high-pressure sales tactics. Just friendly, honest help from someone who gets it.
               <span className="ml-1">💯</span>
             </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
   );
 };
 
