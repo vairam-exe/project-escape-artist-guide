@@ -35,7 +35,7 @@ const Navbar = () => {
             <a href="#things-i-deliver" className="text-sm font-medium hover:text-brand-purple transition-colors">Things I Deliver</a>
             <a href="#why-me" className="text-sm font-medium hover:text-brand-purple transition-colors">Why Me?</a>
             <Button asChild>
-              <a href="#contact" className="font-semibold">Get Help Now</a>
+              <a href="https://wa.link/m4d966" className="font-semibold">Get Help Now</a>
             </Button>
           </nav>
           

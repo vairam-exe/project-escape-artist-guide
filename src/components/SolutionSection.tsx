@@ -55,7 +55,7 @@ const SolutionSection = () => {
               THE SOLUTION
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Meet Your vairam.exe Project Superhero 
+              Meet vairam.exe
               <span className="ml-2">🦸‍♂️</span>
             </h2>
             
@@ -102,7 +102,7 @@ const SolutionSection = () => {
               >
                 <MessageSquare className="h-5 w-5" />
                 <span className="text-sm font-medium">
-                  Got trust issues with developers? Same here! Let's chat about it 🤝
+                  Got trust issues ? Same here! Let's chat about it 🤝
                 </span>
               </a>
             </div>

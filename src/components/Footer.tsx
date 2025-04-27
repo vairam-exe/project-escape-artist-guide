@@ -40,9 +40,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-200 mt-8 pt-8 text-center">
           <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} vairam.exe. Made with 
-            <Heart className="inline-block h-4 w-4 text-brand-red mx-1" /> 
-            and too much caffeine.
+            © {new Date().getFullYear()} vairam.exe. Made with too much caffeine.
           </p>
         </div>
       </div>
