@@ -122,7 +122,6 @@ const ThingsIDeliverSection = () => {
       ref={sectionRef}
       className="relative py-20 md:py-28 overflow-hidden"
     >
-      {/* Background with gradient and pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 z-0">
         <div className="absolute inset-0 opacity-5" style={{ 
           backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(120, 90, 248, 0.2) 2px, transparent 0)',
@@ -130,7 +129,6 @@ const ThingsIDeliverSection = () => {
         }}></div>
       </div>
       
-      {/* Curved section divider at top */}
       <div className="absolute top-0 left-0 right-0 h-12 md:h-24 animate-wave-slow">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="absolute top-0 w-full h-full fill-white">
           <path d="M0,96L60,112C120,128,240,160,360,154.7C480,149,600,107,720,101.3C840,96,960,128,1080,138.7C1200,149,1320,139,1380,133.3L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
@@ -160,19 +158,17 @@ const ThingsIDeliverSection = () => {
           </div>
         </div>
 
-        {/* Grid layout update */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featureItems.map((feature, index) => (
             <div 
               key={index}
-              className="feature-card border-t-4 hover:shadow-xl group relative overflow-hidden"
+              className="feature-card group relative overflow-hidden"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible 
                   ? 'translateY(0) rotate(0)' 
                   : 'translateY(40px) rotate(1deg)',
                 transition: `all 0.6s ease-out ${index * 0.2}s`,
-                borderTopColor: `var(--${feature.color.split('-').pop()}-500)`
               }}
             >
               <div className="p-6 md:p-8">
@@ -203,7 +199,6 @@ const ThingsIDeliverSection = () => {
           ))}
         </div>
         
-        {/* Curved section divider at bottom */}
         <div className="absolute bottom-0 left-0 right-0 h-12 md:h-24 animate-wave-slow">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="absolute bottom-0 w-full h-full fill-white transform rotate-180">
             <path d="M0,96L60,112C120,128,240,160,360,154.7C480,149,600,107,720,101.3C840,96,960,128,1080,138.7C1200,149,1320,139,1380,133.3L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
@@ -211,7 +206,6 @@ const ThingsIDeliverSection = () => {
         </div>
       </div>
       
-      {/* CSS Animations */}
       <style>
         {`
         @keyframes fadeUp {
