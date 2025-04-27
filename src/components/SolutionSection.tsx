@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle2, MessageSquare } from 'lucide-react';
@@ -12,8 +13,12 @@ const SolutionSection = () => {
             <div className="relative">
               <div className="bg-gradient-to-br from-brand-purple/5 to-brand-teal/5 rounded-2xl p-8 max-w-md mx-auto">
                 <div className="bg-white rounded-xl shadow-lg p-6 relative z-10">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-brand-purple rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-3xl sm:text-4xl">🦸‍♂️</span>
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4">
+                    <img 
+                      src="/lovable-uploads/c0392daf-ab4a-451a-88ce-a57a19bba27a.png"
+                      alt="Project Superhero"
+                      className="w-full h-full object-cover rounded-full"
+                    />
                   </div>
                   <h3 className="text-xl font-bold text-center mb-2">Vairam: CS Project Hero</h3>
                   <div className="flex justify-center gap-2 mb-4">
@@ -21,8 +26,7 @@ const SolutionSection = () => {
                     <Badge className="bg-brand-teal/10 text-brand-teal hover:bg-brand-teal/20 border-none">Project Survivor</Badge>
                   </div>
                   <p className="text-center text-gray-600">
-                    "I'm not saying I'm a superhero, but have you ever seen me 
-                    and someone who can actually fix your CS project in the same room? 🤔"
+                    "I will not just be your project guide but also be your friend if you love Thala Ajith, listen to Kanye West, and binge-watch Interstellar for the 3768th time! 🎬"
                   </p>
 
                   <div className="mt-6 pt-6 border-t border-gray-100">
