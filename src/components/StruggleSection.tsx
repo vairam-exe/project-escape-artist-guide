@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Clock, DollarSign, AlertTriangle, Coffee } from 'lucide-react';
+import { Clock, DollarSign, AlertTriangle, Coffee, MessageSquare } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const StruggleSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -130,9 +131,21 @@ const StruggleSection = () => {
                 to become a goat farmer. Then I got scammed by a "professional service" that took my money 
                 and delivered absolute garbage that wouldn't even compile.
               </p>
-              <p className="text-gray-700 font-medium">
+              <p className="text-gray-700 font-medium mb-4">
                 But I survived, graduated in 2024, and now I'm here to be the person I needed back then.
               </p>
+              
+              <a
+                href="https://wa.link/m4d966"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-brand-purple hover:text-brand-purple/90 transition-colors"
+              >
+                <MessageSquare className="h-5 w-5" />
+                <span className="text-sm font-medium">
+                  Panic-googling at 3 AM? Been there! Let's chat before you consider that goat farming career 🐐
+                </span>
+              </a>
             </div>
           </div>
         </div>

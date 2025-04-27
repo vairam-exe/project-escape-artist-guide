@@ -1,6 +1,6 @@
-
 import React from 'react';
-import { Heart } from 'lucide-react';
+import { Heart, MessageSquare } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const Footer = () => {
   return (
@@ -24,6 +24,18 @@ const Footer = () => {
             <a href="#why-me" className="text-sm text-gray-600 hover:text-brand-purple transition-colors">Why Me?</a>
             <a href="#contact" className="text-sm text-gray-600 hover:text-brand-purple transition-colors">Contact</a>
           </div>
+        </div>
+        
+        <div className="mt-6 md:mt-0">
+          <a
+            href="https://wa.link/m4d966"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-brand-purple hover:text-brand-purple/90 transition-colors"
+          >
+            <MessageSquare className="h-5 w-5" />
+            <span className="text-sm font-medium">Still reading? Drop a message, I'm only slightly judgy 😏</span>
+          </a>
         </div>
         
         <div className="border-t border-gray-200 mt-8 pt-8 text-center">

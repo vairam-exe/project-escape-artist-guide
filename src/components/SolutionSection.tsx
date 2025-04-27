@@ -1,6 +1,7 @@
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, MessageSquare } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const SolutionSection = () => {
   return (
@@ -83,10 +84,24 @@ const SolutionSection = () => {
               </li>
             </ul>
             
-            <p className="text-gray-700 italic">
+            <p className="text-gray-700 italic mb-6">
               "The best revenge against scammers? Becoming the honest help students actually deserve." 
               <span className="block text-right mt-2">— Me, probably</span>
             </p>
+
+            <div className="mt-4 text-center">
+              <a
+                href="https://wa.link/m4d966"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-brand-purple hover:text-brand-purple/90 transition-colors"
+              >
+                <MessageSquare className="h-5 w-5" />
+                <span className="text-sm font-medium">
+                  Got trust issues with developers? Same here! Let's chat about it 🤝
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
