@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ShieldCheck, Clock, Zap, Award, BookOpen, Users } from 'lucide-react';
+import { ShieldCheck, Clock, Zap, Award, BookOpen, Users, Star, Quote } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import {
   Carousel,
@@ -9,6 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 
 const WhyMeSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -134,7 +135,7 @@ const WhyMeSection = () => {
         </div>
 
         <div 
-          className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8 border border-gray-100"
+          className="max-w-3xl mx-auto mb-12"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
@@ -146,74 +147,75 @@ const WhyMeSection = () => {
             <span className="ml-1">💬</span>
           </h3>
           
-          <Carousel
-            opts={{
-              align: "center",
-              loop: true,
-            }}
-            className="w-full max-w-2xl mx-auto"
-          >
-            <CarouselContent>
-              {[
-                {
-                  name: "Sravani Venkata Sai",
-                  program: "Nizamabad",
-                  text: "Naku first doubt vachindi—‘Evaro malli oka scam aa?’ But anna actually replied with clarity, no drama. No fake promises, no disappearing acts. Just genuine help. For once, felt safe trusting someone with my project.Thank you anna",
-                  avatar: "SV"
-                },
-                {
-                  name: "Rajalakshmi Yadagiri",
-                  program: "Vijayawada",
-                  text: "Vairam anna line-by-line explain chesadu, like my own classmate sitting beside me. Not just gave project and vanished like those project centers. I actually understood what I submitted!",
-                  avatar: "RY"
-                },
-                {
-                  name: "Gokul",
-                  program: "Chennai",
-                  text: "I thought project-na ₹15K minimum aagum nu. But Vairam anna gave Reasonable price, zero gimmicks. Anna vum oru student dhan nu feeling vandhuchu. I felt like I was talking to a senior, not a salesperson.Thanks na!",
-                  avatar: "GK"
-                },
-                {
-                  name: "Akshay Kumar",
-                  program: "Madurai",
-                  text: "Vairam anna was always there when I needed help, no matter the time. Late night doubts? No problem. I could message anytime, and he’d reply with proper solutions, not just ‘Google it’. Real support from start to finish!",
-                  avatar: "AK"
-                }
-              ].map((testimonial, index) => (
-                <CarouselItem 
-                  key={index} 
-                  className="md:basis-1/1 pl-4"
-                  style={{
-                    animation: isVisible ? `slideIn 0.6s ${index * 0.2}s forwards` : 'none',
-                    opacity: 0,
-                    transform: 'translateX(50px)'
-                  }}
-                >
-                  <div className="bg-gray-50 rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                    <div className="flex items-center gap-4 mb-4">
-                      <Avatar>
-                        <AvatarFallback className="bg-brand-purple/10 text-brand-purple">
-                          {testimonial.avatar}
-                        </AvatarFallback>
-                      </Avatar>
-                      <div>
-                        <p className="font-semibold">{testimonial.name}</p>
-                        <p className="text-sm text-gray-500">{testimonial.program}</p>
-                      </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                name: "Sravani Venkata Sai",
+                program: "Nizamabad",
+                text: "Naku first doubt vachindi—'Evaro malli oka scam aa?' But anna actually replied with clarity, no drama. No fake promises, no disappearing acts. Just genuine help. For once, felt safe trusting someone with my project.Thank you anna",
+                avatar: "SV",
+                color: "bg-purple-100"
+              },
+              {
+                name: "Rajalakshmi Yadagiri",
+                program: "Vijayawada",
+                text: "Vairam anna line-by-line explain chesadu, like my own classmate sitting beside me. Not just gave project and vanished like those project centers. I actually understood what I submitted!",
+                avatar: "RY",
+                color: "bg-blue-100"
+              },
+              {
+                name: "Gokul",
+                program: "Chennai",
+                text: "I thought project-na ₹15K minimum aagum nu. But Vairam anna gave Reasonable price, zero gimmicks. Anna vum oru student dhan nu feeling vandhuchu. I felt like I was talking to a senior, not a salesperson.Thanks na!",
+                avatar: "GK",
+                color: "bg-green-100"
+              },
+              {
+                name: "Akshay Kumar",
+                program: "Madurai",
+                text: "Vairam anna was always there when I needed help, no matter the time. Late night doubts? No problem. I could message anytime, and he'd reply with proper solutions, not just 'Google it'. Real support from start to finish!",
+                avatar: "AK",
+                color: "bg-yellow-100"
+              }
+            ].map((testimonial, index) => (
+              <div 
+                className="testimonial-card-wrapper"
+                key={index}
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+                  transition: `all 0.6s ease-out ${index * 0.15}s`
+                }}
+              >
+                <Card className="h-full hover:shadow-lg transition-shadow duration-300 hover:-translate-y-1 border-t-4" style={{ borderTopColor: testimonial.color === 'bg-purple-100' ? '#9b87f5' : testimonial.color === 'bg-blue-100' ? '#36BFFA' : testimonial.color === 'bg-green-100' ? '#22C55E' : '#FFC53D' }}>
+                  <CardHeader className="pb-3 flex flex-row items-center gap-4">
+                    <Avatar className="h-12 w-12">
+                      <AvatarFallback className={`${testimonial.color} text-brand-purple font-semibold`}>
+                        {testimonial.avatar}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <h4 className="font-semibold text-lg leading-none">{testimonial.name}</h4>
+                      <p className="text-sm text-gray-500">{testimonial.program}</p>
                     </div>
-                    <p className="text-gray-600 italic">"{testimonial.text}"</p>
-                    <div className="flex gap-1 mt-4">
+                  </CardHeader>
+                  <CardContent>
+                    <div className="relative">
+                      <Quote className="h-6 w-6 text-gray-300 absolute -left-2 -top-2 opacity-50" />
+                      <p className="text-gray-600 italic pl-4">{testimonial.text}</p>
+                    </div>
+                  </CardContent>
+                  <CardFooter>
+                    <div className="flex gap-1">
                       {[...Array(5)].map((_, i) => (
-                        <span key={i} className="text-yellow-400">⭐</span>
+                        <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />
                       ))}
                     </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
-          </Carousel>
+                  </CardFooter>
+                </Card>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -242,15 +244,12 @@ const WhyMeSection = () => {
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
           }
 
-          @keyframes slideIn {
-            from {
-              opacity: 0;
-              transform: translateX(50px);
-            }
-            to {
-              opacity: 1;
-              transform: translateX(0);
-            }
+          .testimonial-card-wrapper {
+            transition: all 0.3s ease-out;
+          }
+
+          .testimonial-card-wrapper:hover {
+            transform: translateY(-5px);
           }
         `}
       </style>
