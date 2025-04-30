@@ -64,9 +64,7 @@ const HeroSection = () => {
                 opacity: 0
               }}
             >
-              Your CS project doesn't have to be a horror movie 🎬 
-              (Unless you like that kind of thing). Get genuine help from a 2024 CS graduate 
-              who's been in your shoes and survived the project panic!
+              Forget those shady “project centers” in T. Nagar or Ameerpet that promise you an AI masterpiece but deliver a PowerPoint from 2005. Now, I’m here to help you nail your project without selling your soul (or your semester’s pocket money). 💸
             </p>
             
             <div 

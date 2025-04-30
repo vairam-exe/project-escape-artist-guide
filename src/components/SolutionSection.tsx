@@ -56,10 +56,10 @@ const SolutionSection = () => {
                       className="w-full h-full object-cover rounded-full"
                     />
                   </div>
-                  <h3 className="text-xl font-bold text-center mb-2">Vairam: CS Project Hero</h3>
+                  <h3 className="text-xl font-bold text-center mb-2">vairam.exe</h3>
                   <div className="flex justify-center gap-2 mb-4">
                     <Badge className="bg-brand-purple/10 text-brand-purple hover:bg-brand-purple/20 border-none">Class of 2024</Badge>
-                    <Badge className="bg-brand-teal/10 text-brand-teal hover:bg-brand-teal/20 border-none">Project Survivor</Badge>
+                    <Badge className="bg-brand-teal/10 text-brand-teal hover:bg-brand-teal/20 border-none">50+ Clients</Badge>
                   </div>
                   <p className="text-center text-gray-600">
                     "I will not just be your project guide but also be your friend if you love Thala Ajith, listen to Kanye West, and binge-watch Interstellar for the 3768th time! 🎬"
@@ -108,10 +108,10 @@ const SolutionSection = () => {
               I survived my own final year project AND got scammed by a "professional service" that delivered
               absolute garbage.
             </p>
-
             {/* Apply child animation classes with delay */}
             <p className={`text-lg mb-8 text-gray-700 ${childAnimationClasses(rightColInView, 'delay-300')}`}>
-              Now I'm here to be the person I needed back then - someone who:
+              Now I'm here to be the person I needed back then - <br />
+              <strong>What Makes Me Not-a-Scam™:</strong>
             </p>
 
             {/* Apply child animation classes with delay to the ul or stagger lis */}
@@ -121,7 +121,7 @@ const SolutionSection = () => {
               {/* You could add delays to individual LIs here too if desired, e.g., delay-500, delay-600, etc. */}
               <li className="flex">
                 <CheckCircle2 className="h-6 w-6 text-brand-purple mr-3 flex-shrink-0" />
-                <span>Actually understands your project requirements (shocking, I know! 😱)</span>
+                <span>Actually understands your project domain. (Like… really. Not just reading from a script 😱)</span>
               </li>
               <li className="flex">
                 <CheckCircle2 className="h-6 w-6 text-brand-purple mr-3 flex-shrink-0" />
@@ -129,17 +129,17 @@ const SolutionSection = () => {
               </li>
               <li className="flex">
                 <CheckCircle2 className="h-6 w-6 text-brand-purple mr-3 flex-shrink-0" />
-                <span>Will help you understand the code, not just deliver it 🧠</span>
+                <span>Helps you learn the code — so when the review panel says “Explain line 17,” you don’t black out.🧠</span>
               </li>
               <li className="flex">
                 <CheckCircle2 className="h-6 w-6 text-brand-purple mr-3 flex-shrink-0" />
-                <span>Has actually gone through this recently (not 10 years ago) 🎓</span>
+                <span>Survived this mess just last year. Not one of those 2008 seniors still selling PHP projects.🎓</span>
               </li>
             </ul>
 
             {/* Apply child animation classes with delay */}
             <p className={`text-gray-700 italic mb-6 ${childAnimationClasses(rightColInView, 'delay-600')}`}>
-              "The best revenge against scammers? Becoming the honest help students actually deserve."
+              "The best way to roast scammers? Be the honest machi students can actually trust."
               <span className="block text-right mt-2">— Me, probably</span>
             </p>
 
@@ -153,7 +153,7 @@ const SolutionSection = () => {
               >
                 <MessageSquare className="h-5 w-5" />
                 <span className="text-sm font-medium">
-                  Got trust issues ? Same here! Let's chat about it 🤝
+                Scam avutundemo ani doubt vasthunda? come, let’s talk and find out the truth 🤝
                 </span>
               </a>
             </div>

@@ -49,8 +49,8 @@ const StruggleSection = () => {
             The Struggle is So Real It Hurts 😭
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Let's be honest, your final year project is basically the final boss of your degree.
-            And just like video games, there are opportunistic NPCs trying to scam you...
+          Your final year project? It's that “999999 games in 1” CD from childhood.
+          But what do you get? The same 6 broken scams, renamed 999999 times by different “project agencies.”
           </p>
         </div>
 
@@ -59,30 +59,30 @@ const StruggleSection = () => {
             {
               icon: <Clock className="h-6 w-6 text-brand-red" />,
               bgColor: "bg-red-100",
-              title: "Deadlines Looming Like Final Bosses",
+              title: "The Clock is Ticking !",
               emoji: "⏰",
               content: "Remember when you thought \"I have months to finish this\"? Yeah, that was funny. Now you're sacrificing sleep, social life, and sanity as the deadline approaches at warp speed."
             },
             {
               icon: <DollarSign className="h-6 w-6 text-brand-purple" />,
               bgColor: "bg-purple-100",
-              title: "\"Professional Help\" Costs A Kidney",
+              title: "Project Agencies Be Like: \"Trust Us, Bro.\" ",
               emoji: "💸",
-              content: "So you've found an agency promising to save your project? Great! That'll be the price of a used car, please. Oh, and they might just disappear with your money. Cool, right?"
+              content: " “IEEE-Level Output,” they said.\nTranslation: ₹18,000 gone, plus GST, for a project your senior submitted two years ago — renamed and re-skinned."
             },
             {
               icon: <AlertTriangle className="h-6 w-6 text-brand-yellow" />,
               bgColor: "bg-yellow-100",
               title: "Scam Agencies Are Everywhere",
               emoji: "🚨",
-              content: "\"We'll deliver a perfect project in 24 hours!\" Sure, and I'm the next CEO of Google. These scammers prey on your panic and deliver nothing but heartbreak and emptier wallets."
+              content: "\"We'll deliver a perfect project in 24 hours!\" I’m directing the next Rajamouli blockbuster. These scammers prey on your panic and They serve pre-written garbage and emptier wallets."
             },
             {
               icon: <Coffee className="h-6 w-6 text-brand-teal" />,
               bgColor: "bg-blue-100",
-              title: "Caffeine Is Now Your Primary Nutrient",
+              title: "Caffeine and Constant Panic",
               emoji: "☕",
-              content: "Your blood is now 90% coffee/energy drinks. Your search history is full of \"how to code X in 5 minutes\" and \"can you survive on no sleep for a month?\""
+              content: "Googling “how to fake a machine learning project” while your HOD’s “submit by Monday” email haunts your inbox."
             }
           ].map((item, index) => (
             <div 
@@ -123,13 +123,12 @@ const StruggleSection = () => {
           >
             <div className="feature-card h-full bg-gradient-to-br from-brand-purple/10 to-brand-teal/10">
               <h3 className="text-xl font-bold mb-3">
-                I Feel Your Pain (No, Really, I Do) 
+              I’ve Been You, and I’ve Got Your Back 
                 <span className="emoji-bounce ml-1">🤝</span>
               </h3>
               <p className="text-gray-600 mb-4">
-                I was right where you are in 2023. Panic-googling at 3 AM. Considering dropping out 
-                to become a goat farmer. Then I got scammed by a "professional service" that took my money 
-                and delivered absolute garbage that wouldn't even compile.
+              In 2023, I was panic-googling at 2:47 AM with 3 days to review, one dead laptop, and an even deader will to live.
+I trusted a “professional service” that delivered a Python project that ran only on their laptop and crashed on mine. Spoiler alert: They ghosted me faster than my toxic ex.
               </p>
               <p className="text-gray-700 font-medium mb-4">
                 But I survived, graduated in 2024, and now I'm here to be the person I needed back then.
@@ -143,7 +142,7 @@ const StruggleSection = () => {
               >
                 <MessageSquare className="h-5 w-5" />
                 <span className="text-sm font-medium">
-                  Panic-googling at 3 AM? Been there! Let's chat before you consider that goat farming career 🐐
+                  Midnight Thoughts Being a CHAIWALA outside Vijayawada’s bus stand? Been there! Let's chat before you consider that chai stall career.☕
                 </span>
               </a>
             </div>

@@ -156,28 +156,28 @@ const WhyMeSection = () => {
             <CarouselContent>
               {[
                 {
-                  name: "Alex Chen",
-                  program: "Computer Science",
-                  text: "Thanks to this service, I went from panicking about my final project to confidently presenting it. The explanations were so clear, and the support was incredible!",
-                  avatar: "AC"
+                  name: "Sravani Venkata Sai",
+                  program: "Nizamabad",
+                  text: "Naku first doubt vachindi—‘Evaro malli oka scam aa?’ But anna actually replied with clarity, no drama. No fake promises, no disappearing acts. Just genuine help. For once, felt safe trusting someone with my project.Thank you anna",
+                  avatar: "SV"
                 },
                 {
-                  name: "Sarah Johnson",
-                  program: "Software Engineering",
-                  text: "Not only did I get help with my project, but I actually learned more about modern development practices than I did in some of my classes. Worth every penny!",
-                  avatar: "SJ"
+                  name: "Rajalakshmi Yadagiri",
+                  program: "Vijayawada",
+                  text: "Vairam anna line-by-line explain chesadu, like my own classmate sitting beside me. Not just gave project and vanished like those project centers. I actually understood what I submitted!",
+                  avatar: "RY"
                 },
                 {
-                  name: "Mike Rodriguez",
-                  program: "Web Development",
-                  text: "Quick responses, clear explanations, and high-quality code. Plus, they made sure I understood everything for my project defense. Lifesaver!",
-                  avatar: "MR"
+                  name: "Gokul",
+                  program: "Chennai",
+                  text: "I thought project-na ₹15K minimum aagum nu. But Vairam anna gave Reasonable price, zero gimmicks. Anna vum oru student dhan nu feeling vandhuchu. I felt like I was talking to a senior, not a salesperson.Thanks na!",
+                  avatar: "GK"
                 },
                 {
-                  name: "Emily Zhang",
-                  program: "Information Technology",
-                  text: "After getting scammed by another service, finding this was a blessing. Honest, professional, and actually teaches you the material. 10/10 would recommend!",
-                  avatar: "EZ"
+                  name: "Akshay Kumar",
+                  program: "Madurai",
+                  text: "Vairam anna was always there when I needed help, no matter the time. Late night doubts? No problem. I could message anytime, and he’d reply with proper solutions, not just ‘Google it’. Real support from start to finish!",
+                  avatar: "AK"
                 }
               ].map((testimonial, index) => (
                 <CarouselItem 
